@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <child-component v-bind:propsdata="message"></child-component>
+
+      <!--#3-->
+      <!--sibling-component 등록-->
+      <sibling-component v-bind:sibling="anotherMessage"></sibling-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+    <script src="./js/app.js" charset="utf-8"></script>
+  </body>
+</html>

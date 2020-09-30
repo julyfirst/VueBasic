@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js 실습</title>
+
+<body>
+
+  <div id="app">
+    {{message}}
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script type="text/javascript">
+    // 뷰 인스턴스 생성 (화면 개발하기 위해 필수적으로 생성해야 하는 기본 단위)
+    new Vue({ // 컴포넌트 등록
+      el: '#app', // el 속성, 뷰 인스턴스가 그려질 지점 지정, 뷰 인스턴스로 화면을 렌더링할 때 화면이 그려질 위치의 돔 요소를 지정
+      data: {
+        message: 'hello Vue.js!' //data 속성
+      },
+      beforeCreate: function(){// 객체 생성된 후 가장 처음으로 실행되는 라이플 사이클 단계,
+                              // 여기에서는 data, methods 속성이 아직 저의 되어 있지 않음
+        console.log("beforeCreate");
+      },
+      created: function(){ // el, template 속성 확인 후 속성 내용을 render()로 변환 -> render()는 자바스크립트로 화면의 돔을 그리는 함수
+        console.log("created");
+      },
+      beforeMount: function(){ // $el 생성후 el 속성 값을 대입
+        console.log("beforeMount");
+      },
+      mounted: function(){ // 화면 요소(돔)에 접근할 수 있는 단계 -> 화면 요소를 제어하는 로직을 수행하기 좋은 단계
+          console.log("mounted");
+          this.message='변경된 뷰!'
+      },
+      beforeUpdate: function(){
+          console.log("beforeUpdate");
+      },
+      updated: function(){
+          console.log("updated"); // 데이터 변경이 일어나 화면에 다시 그려졌을 떄 호출 됨
+      }
+    });
+  </script>
+</body>
+
+</html>
